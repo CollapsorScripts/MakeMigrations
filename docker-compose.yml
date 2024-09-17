@@ -1,0 +1,15 @@
+services:
+  development_base:
+    container_name: development_base
+    image: postgres:alpine3.18
+    ports:
+      - "${PORT}:5432"
+    environment:
+      POSTGRES_USER: "${USER}"
+      POSTGRES_PASSWORD: "${PASSWORD}"
+    restart: always
+    volumes: 
+      - postgres_data:/var/lib/postgres/data/
+
+volumes:
+   postgres_data:

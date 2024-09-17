@@ -1,0 +1,16 @@
+   name: migrator
+
+   on:
+     push:
+       branches: [ main ]
+     pull_request:
+       branches: [ main ]
+
+   jobs:
+    build:
+      runs-on: windows-latest
+      steps:
+      - name: checkout repo
+        uses: actions/checkout@main
+      - name: build application
+        run: make setup PORT=7070 USER=postgres PASSWORD=postgres
